@@ -4,100 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Retention Prediction</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-            text-align: center;
-        }
-        header {
-            background: #007bff;
-            color: white;
-            padding: 1em;
-            font-size: 1.5em;
-        }
-        .form-section, .result-section {
-            background: white;
-            padding: 20px;
-            margin: 20px auto;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        form label, form input, form select, form button {
-            display: block;
-            width: 100%;
-            margin: 10px 0;
-            padding: 10px;
-            font-size: 1em;
-        }
-        form button {
-            background: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        form button:hover {
-            background: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
+
+    <!-- Header Section -->
     <header>
-        <h1>Employee Retention Predictor</h1>
+        <div class="logo">
+            <h1>RetentionAI</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Prediction</a></li>
+                <li><a href="#">Analytics</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#">More ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <button class="menu-toggle">☰</button>
     </header>
+    <section class="welcome-section">
+        <div class="welcome-content">
+            <h1>Welcome to RetentionAI</h1>
+            <p>Predict employee retention with AI-powered analytics. Analyze factors affecting employee churn and make data-driven decisions.</p>
+            <a href="#" class="cta-button">Get Started</a>
+        </div>
+    </section>
+    <section class="why-choose">
+        <h2>Why Choose RetentionAI?</h2>
+        <div class="features">
+            <div class="feature-box">
+                <i class="fas fa-chart-line"></i>
+                <h3>AI-Powered Insights</h3>
+                <p>Get deep insights into employee behavior using machine learning models.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-clock"></i>
+                <h3>Real-Time Predictions</h3>
+                <p>Analyze employee retention risks instantly and take action proactively.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-dollar-sign"></i>
+                <h3>Cost Savings</h3>
+                <p>Reduce hiring costs by identifying and retaining valuable employees.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-users"></i>
+                <h3>Data-Driven HR Decisions</h3>
+                <p>Empower HR teams with intelligent data-driven insights.</p>
+            </div>
+        </div>
+    </section>
     
-    <main>
-        <section class="form-section">
-            <h2>Enter Employee Details</h2>
-            <form id="prediction-form">
-                <label for="age">Age:</label>
-                <input type="number" id="age" required>
-                
-                <label for="salary">Monthly Income:</label>
-                <input type="number" id="salary" required>
-                
-                <label for="job-satisfaction">Job Satisfaction:</label>
-                <select id="job-satisfaction">
-                    <option value="1">Low</option>
-                    <option value="2">Medium</option>
-                    <option value="3">High</option>
-                    <option value="4">Very High</option>
-                </select>
-                
-                <label for="years-at-company">Years at Company:</label>
-                <input type="number" id="years-at-company" required>
-                
-                <button type="submit">Predict</button>
-            </form>
-        </section>
+    
 
-        <section class="result-section">
-            <h2>Prediction Result</h2>
-            <p id="prediction-result">Fill in the form and click Predict.</p>
-        </section>
-    </main>
-
-    <script>
-        document.getElementById("prediction-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
-            let age = document.getElementById("age").value;
-            let salary = document.getElementById("salary").value;
-            let jobSatisfaction = document.getElementById("job-satisfaction").value;
-            let yearsAtCompany = document.getElementById("years-at-company").value;
-            
-            let riskScore = (parseInt(salary) / 1000) + (parseInt(yearsAtCompany) * 2) - (parseInt(jobSatisfaction) * 5);
-            
-            let prediction = riskScore > 10 ? "High Risk of Leaving" : "Low Risk of Leaving";
-            
-            document.getElementById("prediction-result").innerText = `Prediction: ${prediction}`;
-        });
-    </script>
 </body>
 </html>
